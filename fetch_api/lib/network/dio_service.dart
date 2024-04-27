@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
-import 'package:fetch_api/entity/PostResponse.dart';
-import 'package:fetch_api/network/HttpService.dart';
+import 'package:fetch_api/entity/post_response.dart';
+import 'package:fetch_api/network/http_service.dart';
 
 class DioService implements HttpService {
   late Dio _dio;

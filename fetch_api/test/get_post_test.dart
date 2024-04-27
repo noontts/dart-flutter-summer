@@ -5,9 +5,9 @@
 // gestures. You can also use WidgetTester to find child widgets in the widget
 // tree, read text, and verify that the values of widget properties are correct.
 
-import 'package:fetch_api/PostService.dart';
-import 'package:fetch_api/network/DioService.dart';
-import 'package:fetch_api/network/MockService.dart';
+import 'package:fetch_api/post_service.dart';
+import 'package:fetch_api/network/dio_service.dart';
+import 'package:fetch_api/network/mock_service.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
