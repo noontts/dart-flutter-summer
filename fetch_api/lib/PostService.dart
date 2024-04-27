@@ -3,7 +3,7 @@ import 'package:fetch_api/entity/PostResponse.dart';
 import 'package:fetch_api/network/HttpService.dart';
 
 class PostService{
-  HttpService _httpService;
+  final HttpService _httpService;
 
   PostService(this._httpService);
 
@@ -11,5 +11,4 @@ class PostService{
     List<PostResponse> response = await _httpService.get("https://jsonplaceholder.typicode.com/posts");
     return response.map((res) => Post(title: res.title!, body: res.body!)).toList();
   }
-
 }
