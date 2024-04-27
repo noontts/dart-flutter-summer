@@ -12,6 +12,7 @@ class DioService implements HttpService {
   @override
   Future<List<PostResponse>> get(String url) async {
     final response = await _dio.get(url);
-    return [];
+    List<PostResponse> posts = (response.data as List).map((json) => PostResponse.fromJson(json)).toList();
+    return posts;
   }
 }
