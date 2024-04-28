@@ -18,8 +18,8 @@ void main() {
     final posts = await postService.getPosts();
 
     expect(posts, isNotEmpty);
-    expect(posts[0].title, 'test');
-    expect(posts[0].body, 'test');
+    expect(posts[0].title, 'test1');
+    expect(posts[0].body, 'test1');
   });
 
   test('Test get post API real integration', () async {

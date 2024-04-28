@@ -8,7 +8,8 @@ class PostService{
   PostService(this._httpService);
 
   Future<List<Post>> getPosts() async {
-    List<PostResponse> response = await _httpService.get("https://jsonplaceholder.typicode.com/posts");
-    return response.map((res) => Post(title: res.title!, body: res.body!)).toList();
+    final response = await _httpService.get("https://jsonplaceholder.typicode.com/posts");
+    final List<PostResponse> posts = (response as List).map((post) => PostResponse.fromJson(post)).toList();
+    return posts.map((res) => Post(title: res.title!, body: res.body!)).toList();
   }
 }
