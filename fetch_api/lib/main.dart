@@ -1,3 +1,6 @@
+import 'package:fetch_api/network/dio_service.dart';
+import 'package:fetch_api/network/http_service.dart';
+import 'package:fetch_api/post_service.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -16,13 +19,25 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+  MyHomePage({super.key, required this.title}){
+    getPostData();
+  }
+
+  void getPostData() async {
+    final httpService = DioService();
+    final postService = PostService(httpService);
+
+    final posts = await postService.getPosts();
+
+    print(posts[0].body);
+  }
+
   final String title;
 
   @override
