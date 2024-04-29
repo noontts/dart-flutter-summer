@@ -16,41 +16,33 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
             children: [
-              HomeNavbar(),
-              HomeJumbotron(),
-              Padding(
+              const HomeNavbar(),
+              const HomeJumbotron(),
+              const Padding(
                 padding: EdgeInsets.all(8.0),
                 child: TextTitle(title: 'Most Popular Outerwear'),
               ),
-              Padding(
-                padding: EdgeInsets.all(8.0),
-                child: SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: Row(
-                    children: [
-                      ProductCard(),
-                      ProductCard(),
-                      ProductCard(),
-                      ProductCard(),
-                      ProductCard(),
-                      ProductCard(),
-                    ],
-                  ),
+              SizedBox(
+                height: 250,
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: ListView(
+                    scrollDirection: Axis.horizontal,
+                      children: const <Widget>[
+                        ProductCard(),
+                        ProductCard(),
+                        ProductCard(),
+                        ProductCard(),
+                        ProductCard(),
+                        ProductCard(),
+                      ],
+                    ),
                 ),
-              ),
-              HomeJumbotron(),
-              Padding(
-                padding: EdgeInsets.all(8.0),
-                child: TextTitle(title: 'Most Popular Outerwear'),
-              ),
-              Padding(
-                padding: EdgeInsets.all(8.0),
-                child: ProductCard(),
               ),
             ],
           ),

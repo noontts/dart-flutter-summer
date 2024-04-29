@@ -11,7 +11,8 @@ class ProductCard extends StatelessWidget {
       onTap: () {
         print('Click Product!');
       },
-      child: SizedBox(
+      child: Container(
+        margin: const EdgeInsets.only(right: 15),
         height: 190,
         width: 150,
         child: Stack(
@@ -23,7 +24,7 @@ class ProductCard extends StatelessWidget {
             ),
             Container(
                 alignment: Alignment.bottomCenter,
-                child: ProductInfo()
+                child: const ProductInfo()
             ),
           ],
         ),
