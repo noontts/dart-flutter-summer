@@ -13,7 +13,7 @@ class SmallText extends StatelessWidget{
       style: TextStyle(
         color: color ?? Colors.white,
         fontWeight: FontWeight.w800,
-        fontSize: 40,
+        fontSize: 12,
       ),
     );
   }

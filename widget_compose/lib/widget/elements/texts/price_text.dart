@@ -13,7 +13,7 @@ class PriceText extends StatelessWidget{
       style: TextStyle(
         color: color ?? Colors.black,
         fontWeight: FontWeight.w800,
-        fontSize: 16,
+        fontSize: 12,
       ),
     );
   }

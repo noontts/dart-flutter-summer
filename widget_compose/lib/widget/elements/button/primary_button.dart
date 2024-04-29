@@ -9,7 +9,11 @@ class PrimaryButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-        onPressed: null,
+        style: const ButtonStyle(
+            backgroundColor: MaterialStatePropertyAll<Color>(Colors.white),
+            shape: MaterialStatePropertyAll<OutlinedBorder>(
+                RoundedRectangleBorder(borderRadius: BorderRadius.zero))),
+        onPressed: () {},
         child: Text(
           title,
           style: TextStyle(
