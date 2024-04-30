@@ -11,6 +11,7 @@ class PriceText extends StatelessWidget{
     return Text(
       title,
       style: TextStyle(
+        overflow: TextOverflow.ellipsis,
         color: color ?? Colors.black,
         fontWeight: FontWeight.w800,
         fontSize: 12,
