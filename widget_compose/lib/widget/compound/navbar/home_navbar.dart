@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:widget_compose/widget/elements/inputs/search_input.dart';
+import 'package:widget_compose/widget/elements/texts/text_title.dart';
 
 class HomeNavbar extends StatelessWidget {
   const HomeNavbar({super.key});
@@ -14,13 +14,18 @@ class HomeNavbar extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Expanded(
-                child: SearchInput(),
+            Row(
+              children: [
+                IconButton(onPressed: null, icon: Icon(Icons.arrow_back,color: Colors.white)),
+                TextTitle(title: 'Home',color: Colors.white,)
+              ],
             ),
-            IconButton(onPressed: null, icon: Icon(
-              Icons.info,
-              color: Colors.white,
-            ))
+            Row(
+              children: [
+                IconButton(onPressed: null, icon: Icon(Icons.search, color: Colors.white,)),
+                IconButton(onPressed: null, icon: Icon(Icons.info, color: Colors.white,)),
+              ],
+            )
           ],
         ),
       ),
