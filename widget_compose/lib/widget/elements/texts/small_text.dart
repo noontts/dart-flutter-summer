@@ -13,7 +13,7 @@ class SmallText extends StatelessWidget{
       style: TextStyle(
         overflow: TextOverflow.ellipsis,
         color: color ?? Colors.white,
-        fontWeight: FontWeight.w800,
+        fontWeight: FontWeight.w400,
         fontSize: 12,
       ),
     );
