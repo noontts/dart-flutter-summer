@@ -5,7 +5,7 @@ import 'package:widget_compose/widget/elements/texts/text_title.dart';
 
 class Catalog extends StatelessWidget {
   final String title;
-  final List<Product> products;
+  final List<ProductToDisplay> products;
   const Catalog({super.key, required this.title, required this.products});
 
   @override

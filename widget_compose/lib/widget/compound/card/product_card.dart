@@ -4,7 +4,7 @@ import 'package:widget_compose/entities/product.dart';
 import 'package:widget_compose/widget/compound/card/product_info.dart';
 
 class ProductCard extends StatelessWidget {
-  final Product product;
+  final ProductToDisplay product;
 
   const ProductCard({super.key, required this.product});
 

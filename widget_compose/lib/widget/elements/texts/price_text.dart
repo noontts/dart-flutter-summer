@@ -14,7 +14,7 @@ class PriceText extends StatelessWidget{
         overflow: TextOverflow.ellipsis,
         color: color ?? Colors.black,
         fontWeight: FontWeight.w800,
-        fontSize: 12,
+        fontSize: 14,
       ),
     );
   }

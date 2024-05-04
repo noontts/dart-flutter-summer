@@ -16,7 +16,7 @@ class ProductInfo extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            SmallText(title: name),
+            SizedBox(width: 80, child: SmallText(title: name)),
             PriceText(title: price, color: Colors.white,)
           ],
         ),
