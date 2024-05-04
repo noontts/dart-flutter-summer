@@ -3,7 +3,9 @@ import 'package:widget_compose/widget/elements/button/primary_button.dart';
 import 'package:widget_compose/widget/elements/texts/big_text.dart';
 
 class HomeJumbotron extends StatelessWidget {
-  const HomeJumbotron({super.key});
+  final String imageUrl;
+  final String title;
+  const HomeJumbotron({super.key, required this.title, required this.imageUrl});
 
   @override
   Widget build(BuildContext context) {
@@ -12,19 +14,19 @@ class HomeJumbotron extends StatelessWidget {
       child: Stack(
         children: <Widget>[
           Image.network(
-            'https://images.unsplash.com/photo-1714165860646-b8de17af3bc8?q=80&w=2969&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+            imageUrl,
             fit: BoxFit.cover,
             width: MediaQuery.of(context).size.width,
           ),
-          const SizedBox(
+          SizedBox(
             child: Center(
               child: Padding(
-                padding: EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(8.0),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    BigText(title: 'New Collection'),
-                    PrimaryButton(title: 'View Collection')
+                    BigText(title: title),
+                    const PrimaryButton(title: 'View Collection')
                   ],
                 ),
               ),
