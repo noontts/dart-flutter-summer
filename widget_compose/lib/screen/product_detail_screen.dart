@@ -35,7 +35,9 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                     )),
               ),
               Container(
-                color: const Color.fromRGBO(246, 246, 246, 100),
+                decoration: BoxDecoration(
+                    color: Colors.grey.shade200,
+                    borderRadius: const BorderRadius.all(Radius.circular(12))),
                 child: Padding(
                   padding: const EdgeInsets.all(20.0),
                   child: Column(
@@ -66,7 +68,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                 ),
               ),
               const SizedBox(
-                height: 60,
+                height: 80,
               )
             ],
           ),
