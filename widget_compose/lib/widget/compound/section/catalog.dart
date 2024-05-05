@@ -6,7 +6,9 @@ import 'package:widget_compose/widget/elements/texts/text_title.dart';
 class Catalog extends StatelessWidget {
   final String title;
   final List<ProductToDisplay> products;
-  const Catalog({super.key, required this.title, required this.products});
+  final OnSelectProduct? onSelectProduct;
+  const Catalog({super.key, required this.title, required this.products, this.onSelectProduct});
+
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +21,7 @@ class Catalog extends StatelessWidget {
             child: TextTitle(title: title),
           ),
         ),
-        ProductList(productList: products)
+        ProductList(productList: products, onSelectProduct: onSelectProduct)
       ],
     );
   }

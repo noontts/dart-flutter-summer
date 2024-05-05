@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:widget_compose/di/get_it.dart';
 import 'package:widget_compose/entities/product.dart';
 import 'package:widget_compose/mocks/products.dart';
@@ -28,6 +29,10 @@ class _MyHomePageState extends State<MyHomePage> {
     super.initState();
   }
 
+  void onSelectProduct(ProductToDisplay product) {
+    context.go("/detail", extra: product);
+  }
+
   void getProducts() async {
     setState(() {
       isLoading = true;
@@ -50,8 +55,9 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(children: [
           const HomeNavbar(),
           Expanded(
-              child: !isLoading
-                  ? ListView.builder(
+              child: isLoading
+                  ? const Loading()
+                  : ListView.builder(
                       itemCount: categories.length,
                       itemBuilder: (context, index) {
                         return Column(
@@ -60,11 +66,12 @@ class _MyHomePageState extends State<MyHomePage> {
                                 title: categories[index],
                                 imageUrl: categoryImages[categories[index]]!),
                             Catalog(
-                                title: "All Product", products: products[index])
+                                title: "All Product",
+                                products: products[index],
+                                onSelectProduct: onSelectProduct)
                           ],
                         );
-                      })
-                  : const Loading())
+                      }))
         ]),
       ),
     );
