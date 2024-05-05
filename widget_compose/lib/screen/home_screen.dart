@@ -58,6 +58,7 @@ class _MyHomePageState extends State<MyHomePage> {
               child: isLoading
                   ? const Loading()
                   : ListView.builder(
+                      key: UniqueKey(),
                       itemCount: categories.length,
                       itemBuilder: (context, index) {
                         return Column(

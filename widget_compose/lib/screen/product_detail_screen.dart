@@ -19,17 +19,19 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
       body: SafeArea(
           child: Padding(
         padding: const EdgeInsets.all(10.0),
-        child: Expanded(
-            child: Center(
+        child: Center(
           child: ListView(
             children: [
               Padding(
                 padding: const EdgeInsets.all(5.0),
                 child: SizedBox(
                     height: 350,
-                    child: Image.network(
-                      widget.product.imageUrl,
-                      fit: BoxFit.contain,
+                    child: Hero(
+                      tag: widget.product.imageUrl,
+                      child: Image.network(
+                        widget.product.imageUrl,
+                        fit: BoxFit.contain,
+                      ),
                     )),
               ),
               Container(
@@ -68,13 +70,14 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
               )
             ],
           ),
-        )),
+        ),
       )),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: SizedBox(
         width: 370,
         height: 60,
         child: FloatingActionButton(
+          heroTag: 'buy_now',
           backgroundColor: Colors.black,
           onPressed: () {},
           child: Padding(

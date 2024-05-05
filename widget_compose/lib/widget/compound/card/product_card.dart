@@ -15,7 +15,7 @@ class ProductCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return TouchableOpacity(
       onTap: () {
-        if(onTap != null) onTap!(product);
+        if (onTap != null) onTap!(product);
       },
       child: Container(
         margin: const EdgeInsets.only(right: 15),
@@ -23,10 +23,13 @@ class ProductCard extends StatelessWidget {
         width: 150,
         child: Stack(
           children: <Widget>[
-            Image.network(
-              product.imageUrl,
-              fit: BoxFit.contain,
-              height: 250,
+            Hero(
+              tag: product.imageUrl,
+              child: Image.network(
+                product.imageUrl,
+                fit: BoxFit.contain,
+                height: 250,
+              ),
             ),
             Container(
                 alignment: Alignment.bottomCenter,
