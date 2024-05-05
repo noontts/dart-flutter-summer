@@ -4,6 +4,7 @@ import 'package:widget_compose/entities/product.dart';
 import 'package:widget_compose/mocks/products.dart';
 import 'package:widget_compose/port/product.dart';
 import 'package:widget_compose/widget/compound/jumbotron/home_jumbotron.dart';
+import 'package:widget_compose/widget/compound/loading/loading_indicator.dart';
 import 'package:widget_compose/widget/compound/navbar/home_navbar.dart';
 import 'package:widget_compose/widget/compound/section/catalog.dart';
 
@@ -19,12 +20,18 @@ class _MyHomePageState extends State<MyHomePage> {
 
   List<List<ProductToDisplay>> products = [];
   List<String> categories = [];
+  bool isLoading = false;
 
-  _MyHomePageState() {
-    getProduct();
+  @override
+  void initState() {
+    getProducts();
+    super.initState();
   }
 
-  void getProduct() async {
+  void getProducts() async {
+    setState(() {
+      isLoading = true;
+    });
     final categories = await service.getCategories();
     final productFetchers = categories.map((e) => service.getByCategory(e));
 
@@ -32,6 +39,7 @@ class _MyHomePageState extends State<MyHomePage> {
     setState(() {
       this.categories = categories;
       this.products = products;
+      isLoading = false;
     });
   }
 
@@ -42,18 +50,21 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(children: [
           const HomeNavbar(),
           Expanded(
-              child: ListView.builder(
-                  itemCount: categories.length,
-                  itemBuilder: (context, index) {
-                    return Column(
-                      children: [
-                        HomeJumbotron(
-                            title: categories[index],
-                            imageUrl: categoryImages[categories[index]]!),
-                        Catalog(title: "All Product", products: products[index])
-                      ],
-                    );
-                  }))
+              child: !isLoading
+                  ? ListView.builder(
+                      itemCount: categories.length,
+                      itemBuilder: (context, index) {
+                        return Column(
+                          children: [
+                            HomeJumbotron(
+                                title: categories[index],
+                                imageUrl: categoryImages[categories[index]]!),
+                            Catalog(
+                                title: "All Product", products: products[index])
+                          ],
+                        );
+                      })
+                  : const Loading())
         ]),
       ),
     );

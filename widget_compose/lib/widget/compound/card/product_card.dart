@@ -11,7 +11,9 @@ class ProductCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TouchableOpacity(
-      onTap: () {},
+      onTap: () {
+        print("ID: " + product.id + ", Name: " + product.name);
+      },
       child: Container(
         margin: const EdgeInsets.only(right: 15),
         height: 250,
