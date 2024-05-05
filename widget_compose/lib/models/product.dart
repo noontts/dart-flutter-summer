@@ -43,8 +43,8 @@ class Product {
 }
 
 class Rating {
-  double? rate;
-  int? count;
+  num? rate;
+  num? count;
 
   Rating({this.rate, this.count});
 
