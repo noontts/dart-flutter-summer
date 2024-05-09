@@ -3,11 +3,9 @@ import 'package:widget_compose/widget/elements/button/primary_button.dart';
 import 'package:widget_compose/widget/elements/texts/big_text.dart';
 
 class HomeJumbotron extends StatelessWidget {
-
   final String imageUrl;
   final String title;
-
-  const HomeJumbotron({super.key, required this.imageUrl, required this.title});
+  const HomeJumbotron({super.key, required this.title, required this.imageUrl});
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +25,7 @@ class HomeJumbotron extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    BigText(title: title.toUpperCase()),
+                    BigText(title: title),
                     const PrimaryButton(title: 'View Collection')
                   ],
                 ),

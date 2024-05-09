@@ -1,29 +1,42 @@
 import 'package:flutter/material.dart';
 import 'package:touchable_opacity/touchable_opacity.dart';
+import 'package:widget_compose/entities/product.dart';
 import 'package:widget_compose/widget/compound/card/product_info.dart';
 
+typedef ProductCardType = Function(ProductToDisplay product);
+
 class ProductCard extends StatelessWidget {
-  const ProductCard({super.key});
+  final ProductToDisplay product;
+  final ProductCardType? onTap;
+
+  const ProductCard({super.key, required this.product, this.onTap});
 
   @override
   Widget build(BuildContext context) {
     return TouchableOpacity(
-      onTap: () {},
+      onTap: () {
+        if (onTap != null) onTap!(product);
+      },
       child: Container(
         margin: const EdgeInsets.only(right: 15),
-        height: 190,
+        height: 250,
         width: 150,
         child: Stack(
           children: <Widget>[
-            Image.network(
-              'https://images.unsplash.com/photo-1713551456730-ba311f8c940c?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-              width: 150,
-              fit: BoxFit.cover,
+            Hero(
+              tag: product.imageUrl,
+              child: Image.network(
+                product.imageUrl,
+                fit: BoxFit.contain,
+                height: 250,
+              ),
             ),
             Container(
                 alignment: Alignment.bottomCenter,
-                child: const ProductInfo()
-            ),
+                child: ProductInfo(
+                  name: product.name,
+                  price: (product.price).toString(),
+                )),
           ],
         ),
       ),
